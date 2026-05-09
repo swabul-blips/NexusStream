@@ -1,0 +1,20 @@
+{
+  "name": "nexus-stream",
+  "private": true,
+  "description": "NexusStream MVP — install dependencies for web + server from repo root",
+  "workspaces": [
+    "web",
+    "server"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev:web": "npm run dev -w web",
+    "dev:server": "npm run dev -w server",
+    "build": "npm run build -w server && npm run build -w web",
+    "build:web": "npm run build -w web",
+    "build:server": "npm run build -w server"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

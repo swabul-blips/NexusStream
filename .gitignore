@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+dist/
+build/
+.cache/
+*.log
+.env
+.env.local
+.env.*.local
+target/
+.anchor/
+.DS_Store
+*.pem
+.vercel
