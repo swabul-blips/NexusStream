@@ -27,6 +27,9 @@ export default function ClientProviders({
   cluster: ClusterChoice;
   children: ReactNode;
 }) {
+  const ConnectionProviderAny = ConnectionProvider as any;
+  const WalletProviderAny = WalletProvider as any;
+  const WalletModalProviderAny = WalletModalProvider as any;
   const endpoint = useMemo(() => getRpcEndpoint(cluster), [cluster]);
 
   const wallets = useMemo(() => {
@@ -35,10 +38,10 @@ export default function ClientProviders({
   }, [cluster]);
 
   return (
-    <ConnectionProvider endpoint={endpoint} config={{ commitment: "confirmed" }}>
-      <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>{children}</WalletModalProvider>
-      </WalletProvider>
-    </ConnectionProvider>
+    <ConnectionProviderAny endpoint={endpoint} config={{ commitment: "confirmed" }}>
+      <WalletProviderAny wallets={wallets} autoConnect>
+        <WalletModalProviderAny>{children}</WalletModalProviderAny>
+      </WalletProviderAny>
+    </ConnectionProviderAny>
   );
 }
